@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SharetheRide</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'dash.css' %}">
+  </head>
+  <body>
+  {% block content %}
+
+    <div class="sidebar">
+      <div class="logo_content">
+        <div class="logo">
+          <i class='bx bxs-car'></i>
+          <div class="logo_name">Share the Ride</div>
+        </div>
+        <i class='bx bx-menu' id="btn"></i>
+      </div>
+
+    <ul class="nav_list">
+      <li>
+        <a href="{% url 'profile' %}">
+          <i class='bx bx-user' ></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+
+      <li>
+        <a href="{% url 'create' %}">
+          <i class='bx bx-right-arrow-alt'></i>
+          <span class="links_name">Create Route</span>
+        </a>
+        <span class="tooltip">Create Route</span>
+      </li>
+
+      <li>
+        <a href="{% url 'find' %}">
+          <i class='bx bx-left-arrow-alt' ></i>
+          <span class="links_name">Find Route</span>
+        </a>
+        <span class="tooltip">Find Route</span>
+      </li>
+
+      <li>
+        <a href="{% url 'settings' %}">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Settings</span>
+        </a>
+        <span class="tooltip">Settings</span>
+      </li>
+    </ul>
+
+    <div class="profile_content">
+      <div class="profile">
+        <div class="profile_details">
+          <img src="{{request.user.customer.photo.url}}" alt="user photo">
+          <div class="name_job">
+            <div class="name">{{prof.firstname}} {{prof.lastname}}</div>
+            <div class="email">{{prof.email}}</div>
+
+          </div>
+        </div>
+        <a href="{% url 'signin' %}"><i class='bx bx-log-out' id="log_out"></i></a>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="home_content">
+      <div class="text">
+		
+					
+					<table style="width:100%">
+					  <tr>
+						<th>Route From</th>
+					  </tr>
+					  <tr>
+						{% for r in r1 %}
+							<td>{{ r }} </td>
+						{% endfor %}
+					  </tr>
+					  <tr>
+						<th>Department</th>
+					  </tr>
+					  <tr>
+						{% for r in r11 %}
+							<td>{{ r }} </td>
+						{% endfor %}
+					  </tr>
+					  <tr>
+						<th>Route To</th>
+					  </tr>				  
+					  <tr>
+						{% for r in r2 %}
+							<td>{{ r }} </td>
+						{% endfor %}
+					  </tr>
+					  <tr>
+						<th>Department</th>
+					  </tr>
+					  <tr>
+					  <tr>
+						{% for r in r22 %}
+							<td>{{ r }} </td>
+						{% endfor %}
+					  </tr>
+					</table>
+					
+					
+					
+					
+					
+                
+
+
+
+
+
+      </div>
+    </div>
+
+    <script>
+      let btnOpen = document.querySelector("#btn");
+      let sidebar = document.querySelector(".sidebar");
+
+      btnOpen.onclick = function(){
+
+        sidebar.classList.toggle("active");
+      }
+    </script>
+	{% endblock %}
+  </body>
+
+</html>

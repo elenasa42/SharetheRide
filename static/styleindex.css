@@ -1,0 +1,97 @@
+/* Navigation-Bar Start */
+body{
+  background-color: #fea868;
+}
+#navbarSupportedContent .nav-link{
+    color: white;
+}
+
+#login-button {
+    border-radius: 8px;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-bottom: 8px;
+}
+
+#login-button svg {
+    display: inline-flex;
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    position: relative;
+}
+/* Navigation-Bar End */
+
+/* Home Label Start */
+#home{
+    color: white;
+    background-color: #fea868;
+}
+
+.container {
+    display: flex;
+}
+
+.container img {
+    padding: 70px;
+    margin-left: -250px;
+    margin-top: -50px;
+}
+
+.message-box {
+    height: 400px;
+    width: 480px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: 220px;
+    color: #FFF;
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+.message-box h1 {
+    font-size: 60px;
+    margin-bottom: 40px;
+    margin-left: -100px;
+    padding: 30px;
+}
+
+.buttons-con .action-link-wrap {
+    margin-top: -50px;
+    margin-left: -70px;
+}
+
+.buttons-con .action-link-wrap button {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s linear;
+    margin-right: 10px
+}
+
+.buttons-con .action-link-wrap button:hover {
+    background: #5A5C6C;
+  }
+
+#sign-button {
+    border-radius: 8px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;;
+}
+
+#sign-button svg {
+    display: inline-flex;
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    left: 5px;
+    position: relative;
+}
+/* Home Label End */
