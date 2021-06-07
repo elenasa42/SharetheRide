@@ -199,10 +199,10 @@ def findPage(request):
     temp1 = ""
     deiktis = 0
     j = 0
-    radius = 0
+    radius = []
     t1=[] 
     t2=[]
-    temp_r = 0;
+    temp_r = [];
    
   
     
@@ -253,7 +253,7 @@ def findPage(request):
             temp_radius = Route.objects.all().filter(rout_category='create')
                               
                         
-            for i in range(0,len(temp_radius)-1):
+            for i in range(0,len(temp_radius)):
                 j = 0
                 
                 while j <= len(str((temp_radius[i].routFrom)))-1:
@@ -266,13 +266,13 @@ def findPage(request):
                     if((str(temp_radius[i].routFrom))[deiktis+6] != ')'):
                         
                         if int((str(temp_radius[i].routFrom))[deiktis+6]) == int(routFrom1[4]) :
-                            radius = [temp_radius[i]]
+                            radius += [temp_radius[i]]
                             
                         elif int((str(temp_radius[i].routFrom))[deiktis+6]) + 1 == int(routFrom1[4]) :
-                            radius = [temp_radius[i]]
+                            radius += [temp_radius[i]]
                             
                         elif int((str(temp_radius[i].routFrom))[deiktis+6]) -1 == int(routFrom1[4]) :
-                            radius = [temp_radius[i]]
+                            radius += [temp_radius[i]]
                             
             
             
@@ -280,6 +280,7 @@ def findPage(request):
             if radius != 0:
                 if len(radius) == 1:
                     for i in range(0,len(radius)):
+                       
                         
                         temp_r = Route.objects.filter(routFrom=radius[i].routFrom,rout_category='create')
                         
@@ -287,8 +288,10 @@ def findPage(request):
                         cu = Customer.objects.filter(pk=c[i])
                         
                 else :
-                    for i in range(0,len(radius)-1):
+                    for i in range(0,len(radius)):
                         
+                        
+                        temp_r += Route.objects.filter(routFrom=radius[i].routFrom,rout_category='create')
                         c = radius[i].user_id_id
                         cu = Customer.objects.filter(pk=c)
                        
@@ -296,6 +299,7 @@ def findPage(request):
             
             if(temp_r != 0):
                 for i in range(0,len(temp_r)):
+                    
                     routF = temp_r[i].routFrom
                     routT = temp_r[i].routTo
                     temp = ""
